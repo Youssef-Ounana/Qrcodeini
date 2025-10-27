@@ -23,7 +23,7 @@ class QrcodeController extends Controller
     public function index()
     {
         $qrcodes=Qrcode::paginate(1);
-        return view('qrcodes.index', compact ('qrcodes'));
+        return view('qrcodes.index', compact('qrcodes'));
     }
 
     /**
