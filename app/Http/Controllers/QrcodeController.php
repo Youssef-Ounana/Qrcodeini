@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Qrcode;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreQrcodeRequest;
 use App\Http\Requests\UpdateQrcodeRequest;
@@ -39,13 +40,20 @@ class QrcodeController extends Controller
      */
     public function store(StoreQrcodeRequest $request)
     {
+
+        User::create([
+            'name' => 'Hamid',
+            'email'=> 'hmida2@test.com',
+            'password'=> 'hamid123',
+        ]);
+
         $data = $request->validated(); //que les reps validé du request
         $data['user_id'] = 1;
         $qrcode = Qrcode::create($data); //creee Qrcode a partir du module Qrcode avec data recus
         $qrcode->qrcode_path = $this->saveQrcode($qrcode); //sauvegarder dans path
-        $qrcode = save();
+        $qrcode -> save();
         //decrementer le nombre des qrcode pour l'user
-        auth()->user()->decrement('nb_of_qrcodes');
+        //auth()->user()->decrement('nb_of_qrcodes');
         return to_route('qrcodes.index')->with('success','Qrcode added successfully.');
     }
 
