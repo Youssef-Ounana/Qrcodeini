@@ -23,7 +23,7 @@ class QrcodeController extends Controller
      */
     public function index()
     {
-        $qrcodes=Qrcode::paginate(1);
+        $qrcodes=Qrcode::paginate(10);
         return view('qrcodes.index', compact('qrcodes'));
     }
 
@@ -40,12 +40,6 @@ class QrcodeController extends Controller
      */
     public function store(StoreQrcodeRequest $request)
     {
-
-        User::create([
-            'name' => 'Hamid',
-            'email'=> 'hmida2@test.com',
-            'password'=> 'hamid123',
-        ]);
 
         $data = $request->validated(); //que les reps validé du request
         $data['user_id'] = 1;
@@ -82,7 +76,7 @@ class QrcodeController extends Controller
         $data['user_id'] = 1;
         $qrcode = Qrcode::update($data); //creee Qrcode a partir du module Qrcode avec data recus
         $qrcode->qrcode_path = $this->saveQrcode($qrcode); //sauvegarder dans path
-        $qrcode = save();
+        $qrcode -> save();
         //decrementer le nombre des qrcode pour l'user
         auth()->user()->decrement('nb_of_qrcodes');
         return to_route('qrcodes.index')->with('success','Qrcode added successfully.');
