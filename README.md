@@ -1,3 +1,25 @@
+# 🧾 QRCode Generator App
+
+Une application Laravel simple et élégante permettant aux utilisateurs de s'inscrire, se connecter et générer leurs propres QR codes. Chaque utilisateur ne voit que ses propres QR codes.
+
+## 🚀 Fonctionnalités
+
+- ✅ Authentification (Register / Login / Logout)
+- ✅ Génération de QR codes personnalisés
+- ✅ Listing des QR codes de l'utilisateur connecté
+- ✅ Design moderne avec Tailwind CSS
+- ✅ Sécurité : chaque QR code est privé à son créateur
+
+## 🛠️ Technologies utilisées
+
+- [Laravel 12](https://laravel.com/)
+- [PHP 8.4](https://www.php.net/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- Blade Templates
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
