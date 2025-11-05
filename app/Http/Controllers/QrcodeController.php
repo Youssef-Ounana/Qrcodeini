@@ -24,6 +24,7 @@ class QrcodeController extends Controller
     public function index()
     {
         $qrcodes=Qrcode::paginate(10);
+        $qrcodes = auth()->user()->qrcodes;
         return view('qrcodes.index', compact('qrcodes'));
     }
 
@@ -42,7 +43,7 @@ class QrcodeController extends Controller
     {
 
         $data = $request->validated(); //que les reps validé du request
-        $data['user_id'] = 1;
+        $data['user_id'] = auth()->user()->id;
         $qrcode = Qrcode::create($data); //creee Qrcode a partir du module Qrcode avec data recus
         $qrcode->qrcode_path = $this->saveQrcode($qrcode); //sauvegarder dans path
         $qrcode -> save();
@@ -119,5 +120,8 @@ class QrcodeController extends Controller
             File::delete($path);
         }
     }
+
+
+
 
 }

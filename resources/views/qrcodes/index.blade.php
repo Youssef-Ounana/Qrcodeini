@@ -32,12 +32,12 @@
                             <td class="px-6 py-4">
                                 <img src="{{ asset($qrcode->qrcode_path) }}" alt="QR Code" class="w-20 h-20 object-contain rounded-md border border-gray-300">
                             </td>
-                            <td class="px-6 py-4">
-                                <a href="{{ asset($qrcode->qrcode_path) }}" download class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md shadow-sm transition duration-200">Download</a>
+                            <td class="px-6 py-4 ">
+                                <a href="{{ asset($qrcode->qrcode_path) }}" download class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md shadow-sm transition duration-200 m-3">Download</a>
                                 <form action="{{ route('qrcodes.destroy', $qrcode->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this QR code?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md shadow-sm transition duration-200">
+                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md shadow-sm transition duration-200 m-3">
                                         🗑️ Delete
                                     </button>
                                 </form>

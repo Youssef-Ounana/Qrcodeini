@@ -52,8 +52,6 @@ class User extends Authenticatable
         return $this->hasMany(Qrcode::class);
     }
 
-    public function subsciptions(){
-        return $this->hasMany(Subsciption::class);
-    }
+
 
 }
